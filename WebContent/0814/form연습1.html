@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+	function print(){
+		dan = document.ff.input.value;
+			res = dan + "단\n";
+			for (var i = 1; i <= 9; i++) {
+				res += dan + " * " + i + " = " + dan*i + "\n";
+			}
+		document.querySelector('#result').innerHTML = res;
+	}
+</script>
+<style>
+	body{
+		text-align: center;	
+	}
+</style>
+</head>
+<body>
+<div class ="box">
+	<form name = "ff">
+		<h3>form 문제1</h3>
+		<input type = "text" name = "input">
+		단
+		<input type = "button" value = "출력" onclick = "print()">
+		<br><br>
+		<textarea rows = 30 cols = 50 id = "result"></textarea>
+	</form>
+</div>
+
+</body>
+</html>

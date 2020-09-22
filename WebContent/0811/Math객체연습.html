@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+	window.onload = function(){
+		num = Math.floor(Math.random() * 100+1);
+		count = 0;
+		hint = "";
+		values = "";
+		result = document.querySelector("#result1");
+	}
+	
+	function proc1() {
+		// 입력한 값 가져오기
+		inputvalue = document.querySelector('#input').value;
+		
+		values += inputvalue + "<br>";
+		// 값 비교
+			if(num == inputvalue){
+				hint = "정답입니다!!";
+				result.innerHTML = res;
+				
+			}else if(num > inputvalue){
+				hint = "더 큰 값을 입력하세요";
+				count++;
+				result.innerHTML = hint;
+			}else if(num < inputvalue){
+				hint = "더 작은 값을 입력하세요";
+				count++;
+				result.innerHTML = hint;
+			}
+			res = "정답 : " + num + "<br>";
+			res += "입력한 값 : " + values + "<br>";
+			res += "횟수 : " + count + "회  <br>";
+	}
+	function proc2(){
+		arr = ["가위", "바위", "보"]; // 
+		com = Math.floor(Math.random()*arr.length);
+		res = "";
+		user = prompt("가위, 바위, 보를 입력해주세요");
+		if (arr[com] == user) {
+			res += "컴퓨터 : " + arr[com] + "<br>"; 
+			res += "사용자 : " + user + "<br>"; 
+			res += "비겼습니다.";
+		}else if(user == "가위" && arr[com] == "보"|| user == "바위" && arr[com] == "가위" || user == "보" && arr[com] == "바위" ){
+			res += "컴퓨터 : " + arr[com] + "<br>"; 
+			res += "사용자 : " + user + "<br>"; 
+			res += "사용자가 이겼습니다.";
+		}else if(user == "가위" && arr[com] == "바위"|| user == "바위" && arr[com] == "보" || user == "보" && arr[com] == "가위"){
+			res += "컴퓨터 : " + arr[com] + "<br>"; 
+			res += "사용자 : " + user + "<br>"; 
+			res += "컴퓨터가 이겼습니다.";
+		}else{
+			res += "제대로 내라";
+		}
+		document.querySelector('#result2').innerHTML = res;
+	}
+	function proc3(){
+		res="";
+		lotto = [];
+		while(true){
+			num = Math.floor(Math.random()*45+1);
+			if (lotto.indexOf(num)==-1) {
+				lotto.push(num);	
+			}
+			if(lotto.length == 6){
+				break;
+			}
+		}
+		res += "로또 번호 : " + lotto + "<br>";
+		document.querySelector('#result3').innerHTML += res;
+	}
+</script>
+<style>
+</style>
+</head>
+<body>
+<div class ="box">
+	<h3>1. 랜덤 수 맞추기</h3>
+	1 ~ 100 사이의 난수를 발생한다.<br>
+	text안에 예상가는 난수를 입력하여 맞춘다.<br>
+	난수보다 크면 '난수보다 크다', 작으면 '난수보다 작다'<br>
+	최종적으로 몇번 시도만에 맞추는지 출력<br>
+	<br>
+	<input type = "text" id = "input">
+	<input type = "button" value = "확인" onclick = "proc1()">
+	<br><br>
+	<div id = "result1"></div>
+</div>
+<div class ="box">
+	<h3>2. 컴퓨터와 가위바위보</h3>
+	난수의 값으로 가위바위보를 출력<br>
+	사용자는 가위바위보를 prompt로 입력<br>
+	어느 쪽이 이겼는지 결과 출력<br>
+	<br>
+	<input type = "button" value = "확인" onclick = "proc2()">
+	<br><br>
+	<div id = "result2"></div>
+</div>
+<div class ="box">
+	<h3>3. 로또번호 발생</h3>
+	1~45의 난수 출력<br>
+	서로 중복되지않은 6개의 숫자 출력<br>
+	<br>
+	<input type = "button" value = "확인" onclick = "proc3()">
+	<br><br>
+	<div id = "result3"></div>
+</div>
+
+</body>
+</html>

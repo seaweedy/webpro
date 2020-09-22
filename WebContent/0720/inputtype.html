@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#sendimg{
+		width : 50px;
+		height : 50px;
+	}
+</style>
+</head>
+<body>
+	<form action = "input.jsp" method = "post">
+		<input type = "hidden" value ="korea" name = "id"><br> 
+		이름 : <input type = "text" name = "name"><br>
+		전화번호 : <input type = "text" name ="tel"><br>
+		성별 : <input type = "radio" value ="여자" name = "gender"> 여자<!-- radio는 name이 같아야 한 묶음으로 묶인다. -->
+			 <input type = "radio" value ="남자" name = "gender"> 남자 	<br> 
+		좋아하는 과일 : <input type = "checkbox" value = "딸기" name = "fruits">딸기
+			    	<input type = "checkbox" value = "사과" name = "fruits">사과
+					<input type = "checkbox" value = "파인애플" name = "fruits">파인애플
+					<input type = "checkbox" value = "키위" name = "fruits">키위
+					<br>
+		첨부파일 : 
+		<input type = "file" name = "file"><br>
+		<br>
+		- 전송 수행 : input type = image, input type = submit <br>
+		- 일반 버튼 : input type = button <br>
+		<input id = "sendimg" type = "image" src = "../images/check.png"> <!-- 이미지클릭하여도 전송 가능 -->
+		<input type = "reset" value = "초기화">
+		<input type = "submit" value ="전송">
+		<input type = "button" value = "띄우기" onclick = "alert('Hello')"> <!-- alert이미 만들어진 함수로써 ''의 내용 출력 -->
+		<br>
+		- 전송 수행 : button type = submit, button <br>
+		- 일반 버튼 : button type = "button" <br>
+		<button type = "button" onclick = "">확인</button>			<!-- button은 별도의 기능이 없어 기능을 추가하려면 javacript이용 -->
+		<button type = "submit">전송</button>	
+		<button> 전송</button>		
+		<button type = "reset">취소</button>			
+	</form>
+	
+</body>
+</html>

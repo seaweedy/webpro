@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+	var circle = {
+		rad : 4,
+		getArea : function(){
+			// 반지름 * 반지름 * 3.14 
+			//var area = this.rad * this.rad * Math.PI;
+			var area = Math.floor(Math.PI * Math.pow(this.rad,2));
+			return area;
+		},
+		getCircum : function(){
+			//반지름 *2 * 3.14
+			cir = Math.floor(2 * Math.PI + this.rad);
+			return cir;
+		}
+	}
+	
+	var addr = { // 껍데기만 있는 객체
+			
+	}
+	
+	function proc1(){
+		circle.name = "동그라미";
+		res = "이름 : " + circle.name + "<br>";
+		res += "반지름 : "+ circle.rad + "<br>";
+		res += "면적 : " + circle.getArea()+ "<br>";
+		res += "둘레 : " + circle.getCircum()+ "<br>";
+		
+		document.getElementById('result1').innerHTML = res;
+	}
+	function proc2(){
+		var rect = {
+			x : 5,
+			y : 10,
+		
+			getArea : function(){
+				var area = this.x*this.y;
+				return area;
+			},
+			getRound : function(){
+				var round = 2*this.x+2*this.y;
+				return round;
+			}	
+		}
+		
+		rect.name = "사각형";
+		res = "이름 : " + rect.name + "<br>";
+		res += "가로의 길이 : "+ rect.x +"<br>";
+		res += "세로의 길이 : " + rect.y +"<br>";
+		res += "면적 : " + rect.getArea()+ "<br>";
+		res += "둘레 : " + rect.getRound()+ "<br>";
+		
+		document.getElementById('result2').innerHTML = res;
+	}
+	function proc3(){
+		// 동적으로 속성 추가
+		addr.name = prompt("이름을 입력해주세요");
+		addr.addr = prompt("주소를 입력해주세요");
+		addr.tel = prompt("전화번호를 입력해주세요");
+		addr.zip = "12345";
+		
+		// 메서드 추가
+		addr.info = function(){
+			res = "**** ifno() ****<br>";
+			res += "이름 : " + addr.name + "<br>";
+			res += "주소: "+ addr.addr +"<br>";
+			document.querySelector("#result3").innerHTML = res;
+		} 
+		
+		addr.info2 = function(){
+			res = "**** ifno2() ****<br>";
+			res += "이름 : " + addr.name + "<br>";
+			res += "주소: "+ addr.addr +"<br>";
+			res += "전화번호 : " + addr.tel +"<br>";
+			res += "우편번호 : " + addr.zip+ "<br>";
+		}
+		// 함수호출
+		addr.info();
+		
+		v = addr.info2();
+		document.querySelector('#result3').innerHTML += res;
+	}
+</script>
+<style>
+</style>
+</head>
+<body>
+	<div class="box">
+		<h3>1. circle객체 생성</h3>
+		- 속성 : 반지름 (rad) <br> - 메서드 : 면적 구하기(getArea()), 둘레구하기(getCircum())) <br> <br>
+		<input type="button" value="확인"
+			onclick="proc1()"> <br>
+		<br>
+		<div id="result1"></div>
+	</div>
+	<div class="box">
+		<h3>2. Rect객체 생성</h3>
+		- 속성 : 가로(width), 세로(height), 이름(name) <br>
+	 	- 메서드 : 면적 구하기(getArea()), 둘레구하기(getCircum())) <br> <br>
+		<input type="button" value="확인"
+			onclick="proc2()"> <br>
+		<br>
+		<div id="result2"></div>
+	</div>
+	<div class="box">
+		<h3>3. addr객체</h3>
+		- 정해진 속성과 메서드가 없다. var addr = { } <br>
+	 	- 확인버튼 클릭하면 동적으로 속성과 메서드를 추가하여 사용할 수 있다.<br>
+	 	 addr.name = "홍길동"<br> <br>
+		<input type="button" value="확인"
+			onclick="proc3()"> <br>
+		<br>
+		<div id="result3"></div>
+	</div>
+
+</body>
+</html>

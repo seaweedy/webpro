@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+	function print(){
+		dan = document.ff.num.value;
+		res = dan+"단" + "<br>";
+		for (var i = 1; i < 10; i++) {
+			res += dan + " * " + i + " = " + dan*i + "<br>";
+		}
+		document.querySelector('#result1').innerHTML = res;
+	}
+</script>
+<style>
+body{
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<div class ="box">
+	<form name = "ff">
+		<select name = "num">
+			<option value = "2">2단</option>
+			<option value = "3">3단</option>
+			<option value = "4">4단</option>
+			<option value = "5">5단</option>
+			<option value = "6">6단</option>
+			<option value = "7">7단</option>
+			<option value = "8">8단</option>
+			<option value = "9">9단</option>
+		</select>
+		<input type="button" value = "출력" onclick = "print()">
+	</form>
+	<h2>결과 출력</h2>
+	<br>
+	<div id = "result1">
+	</div>
+	<br><br>
+</div>
+
+</body>
+</html>

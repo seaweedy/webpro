@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+	function proc1(){
+		today = new Date();
+		birday = new Date("2017.03.31");
+		times = today.getTime()-birday.getTime();
+		
+		res = "금연시작일 : "+ birday.toLocaleString()+ "<br>";
+		res += "오늘 날짜 : "+ today.toLocaleString()+ "<br>";
+		res += "금연 한 초 : " + Math.floor(times/1000) + "초 <br>";
+		res += "금연 한 분 : " + Math.floor(times/1000/60) + "분 <br>";
+		res += "금연 한 시간 : " + Math.floor(times/1000/60/60) + "시간 <br>";
+		res += "금연 한 날짜 : " + Math.floor(times/1000/60/60/24) + "일 <br>";
+		res += "금연 한 해 : " + Math.floor(times/1000/60/60/24/365) + "년 <br>";
+		document.getElementById('result1').innerHTML = res;
+	}
+	function proc2(){
+		// 오늘 날짜 생성
+		today = new Date();
+		
+		// times =  오늘의 millisec + 100일의 millisec
+		a = today.getTime();
+		b = 1000*60*60*24*100;
+		times = a+b;
+		// 100일이 되는날  nday = new Date(times);
+		nday = new Date(times);
+		// nday 출력
+		res = "금일 : "+ today.toLocaleString()+ "<br>";
+		res += "100일이 되는 날 : "+ nday.toLocaleString() + "<br>";
+		document.getElementById('result2').innerHTML = res;
+	}
+	function proc3(){
+		// 오늘 날짜 생성
+		today = new Date();
+		a = today.getTime();
+		xmas = new Date("2020.12.25");
+		b = xmas.getTime();
+		
+		times = b-a;
+		
+		dday = new Date(times);
+		
+		res = "금일 : "+ today.toLocaleString()+ "<br>";
+		res += "크리스마스까지 며칠 남았는가 : "+ Math.floor(dday.getTime()/1000/60/60/24) + "일 남았습니다. <br>";
+		
+		document.getElementById('result3').innerHTML = res;
+	}
+</script>
+<style>
+</style>
+</head>
+<body>
+<div class ="box">
+	<h3>1. 경과시간</h3>
+	- 태어난 날부터 오늘날짜까지의 일 수 구하기<br>
+	birday = new Date("태어난 날");<br>
+	today = new Date() : 오늘 날짜<br>
+	
+	time = today.getTime() - birday.getTime();
+	
+	
+	
+	<br>
+	<input type = "button" value = "확인" onclick = "proc1()">
+	<br><br>
+	<div id = "result1"></div>
+</div>
+<div class ="box">
+	<h3>2. 경과시간</h3>
+	- 오늘부터 1일일때 100일 후 구하기<br>
+	- today = new Date();<br>
+	- 100일의 millisec 값 구하기<br>
+	- today.getTime() + 100일의 millisec <br>
+	<br>
+	<input type = "button" value = "확인" onclick = "proc2()">
+	<br><br>
+	<div id = "result2"></div>
+</div>
+<div class ="box">
+	<h3>3. 크리스마스까지 남은 기간</h3>
+	- 오늘부터 크리스마스까지 며칠 남았는가<br>
+	<br>
+	<input type = "button" value = "확인" onclick = "proc3()">
+	<br><br>
+	<div id = "result3"></div>
+</div>
+
+</body>
+</html>

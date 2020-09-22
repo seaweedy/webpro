@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+	body{
+		background: beige;
+	}
+	table{
+		border: 1px solid black;
+		width : 700px;
+		height : 150px;
+		text-align: center;
+		
+	}
+	th{
+		text-align: center;
+		font-weight: bold;
+		height : 30px;
+		width : 300px;
+	}
+	#head{
+		width : 700px;
+		text-align : center;
+		color : red;
+		text-decoration: underline;
+	}
+</style>
+</head>
+<body>
+<div id = "head">
+<h3>Shopping Cart</h3>
+</div>
+	<table border= "1">
+		<tr>
+			<th>품목</th>
+			<th>합계</th>
+			<th>수량</th>
+			<th>합계</th>
+		</tr>
+		<tr>
+			<td>컴퓨터 세트</td>
+			<td>2,000,000원</td>
+			<td><input type="number" min="0" max="10000000" step="1" value="0" name="price"></td>
+			<td><input type="text" value= "0"></td>
+		</tr>
+		<tr>
+			<td>티셔츠</td>
+			<td>50,000원</td>
+			<td><input type="number" min="0" max="10000000" step="1" value="0" name="price"></td>
+			<td><input type="text" value= "0"></td>
+		</tr>
+		<tr>
+			<td>음악파일</td>
+			<td>1,000원</td>
+			<td><input type="number" min="0" max="10000000" step="1" value="0" name="price"></td>
+			<td><input type="text" value= "0"></td>
+		</tr>
+		<tr>
+			<td>영화파일</td>
+			<td>5,000원</td>
+			<td><input type="number" min="0" max="10000000" step="1" value="0" name="price"></td>
+			<td><input type="text" value= "0"></td>
+		</tr>
+		<br>
+		</table>
+		<input type="button" value = "계산"> &nbsp; 
+		<input type="button" value= "구매"> &nbsp;
+		<input type="button" value= "초기화"> &nbsp;
+</body>
+</html>
